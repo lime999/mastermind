@@ -29,7 +29,7 @@ button {
 }
 
 .hole {
-    background-color: black;
+    background-color: grey;
     border: none;
     border-radius: 10px;
     width: 15px;
