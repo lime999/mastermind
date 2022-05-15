@@ -15,7 +15,7 @@ function selectButtonColor(buttonId) {
 }
 
 function getNextColor(currentColor) {
-    if (currentColor === "grey") {
+    if (currentColor === "grey" || currentColor === "orange") {
         return colors[0]
     }
     let index = colors.indexOf(currentColor)
