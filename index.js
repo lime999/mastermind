@@ -22,14 +22,14 @@ function getNextColor(currentColor) {
     return colors[index + 1]
 }
 
-function addRow() {
+function addRow(rowId) {
     let board = document.getElementById("board")
     let row = document.createElement("div")
     board.appendChild(row)
     row.className = "row"
-    row.id = "row_1"
+    row.id = "row_" + rowId
     for (let i = 0; i < 4; i++) {
-        addButton(row, 1, i + 1)
+        addButton(row,rowId, i + 1)
     }
 }
 
@@ -43,4 +43,6 @@ function addButton(row, rowId, buttonId) {
     row.appendChild(button)
 }
 
-addRow()
+for (let i = 0; i < 9; i++) {
+    addRow(i + 1)
+}
