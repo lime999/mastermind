@@ -9,11 +9,9 @@ let colors = [
     "silver",
     "orange"
 ]
-function selectColor11() {
-    let firstRowOne = document.getElementById("1_1")
-    console.log(firstRowOne.style.backgroundColor)
-    console.log(firstRowOne.style)
-    firstRowOne.style.backgroundColor = getNextColor(firstRowOne.style.backgroundColor)
+function selectButtonColor(buttonId) {
+    let button = document.getElementById(buttonId)
+    button.style.backgroundColor = getNextColor(button.style.backgroundColor)
 }
 
 function getNextColor(currentColor) {
@@ -29,14 +27,20 @@ function addRow() {
     let row = document.createElement("div")
     board.appendChild(row)
     row.className = "row"
-    addButton(row)
+    row.id = "row_1"
+    for (let i = 0; i < 4; i++) {
+        addButton(row, 1, i + 1)
+    }
 }
 
-function addButton(row) {
+function addButton(row, rowId, buttonId) {
     let button = document.createElement("button")
     button.className = "hole"
-    button.id = "1_1"
-    button.onclick = selectColor11
+    button.id = "button_" + rowId + "_" + buttonId
+    button.addEventListener('click', function () {
+        selectButtonColor(button.id)
+    });
     row.appendChild(button)
 }
+
 addRow()
