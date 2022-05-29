@@ -58,8 +58,7 @@ function createPin(rowId, pinId) {
 }
 
 window.onload = function () {
-  for (let i = 0; i < 9; i++) {
-    //TODO: adjust counter to avoid adding one here
-    addRow(i + 1);
+  for (let i = 1; i < 10; i++) {
+    addRow(i);
   }
 };
