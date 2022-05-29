@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+}
+
+.wrapper {
+  display: inline-block;
+  height: 4em;
+  width: 4em;
+  position: relative;
+}
+
+.circle {
+  height: 3em;
+  width: 3em;
+  background-color: gray;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
