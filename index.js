@@ -11,9 +11,12 @@ let colors = [
 function selectPinColor(pinId) {
   let pin = document.getElementById(pinId);
   pin.style.backgroundColor = getNextColor(pin.style.backgroundColor);
-  // TODO: remove only if present, add only if not present
-  pin.classList.remove("hole");
-  pin.classList.add("pin");
+  if (pin.classList.contains("hole")) {
+    pin.classList.remove("hole");
+  }
+  if (!pin.classList.contains("pin")) { 
+    pin.classList.add("pin");
+  }
 }
 
 function getNextColor(currentColor) {
