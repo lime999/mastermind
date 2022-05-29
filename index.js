@@ -1,55 +1,62 @@
-
 let colors = [
-    "red",
-    "lightblue",
-    "white",
-    "yellow",
-    "lightgreen",
-    "pink",
-    "silver",
-    "orange"
-]
-function selectButtonColor(buttonId) {
-    let button = document.getElementById(buttonId)
-    button.style.backgroundColor = getNextColor(button.style.backgroundColor)
-    button.classList.remove("hole")
-    button.classList.add("pin")
+  "red",
+  "lightblue",
+  "white",
+  "yellow",
+  "lightgreen",
+  "pink",
+  "silver",
+  "orange",
+];
+function selectPinColor(pinId) {
+  let pin = document.getElementById(pinId);
+  pin.style.backgroundColor = getNextColor(pin.style.backgroundColor);
+  // TODO: remove only if present, add only if not present
+  pin.classList.remove("hole");
+  pin.classList.add("pin");
 }
 
 function getNextColor(currentColor) {
-    if (currentColor === "grey" || currentColor === "orange") {
-        return colors[0]
-    }
-    let index = colors.indexOf(currentColor)
-    return colors[index + 1]
+  if (currentColor === "gray" || currentColor === "orange") {
+    return colors[0];
+  }
+  let index = colors.indexOf(currentColor);
+  return colors[index + 1];
 }
 
 function addRow(rowId) {
-    let board = document.getElementById("board")
-    let row = document.createElement("div")
-    board.appendChild(row)
-    row.className = "row"
-    row.id = "row_" + rowId
-    for (let i = 0; i < 4; i++) {
-        addButton(row, rowId, i + 1)
-    }
+  let board = document.getElementById("board");
+  let row = document.createElement("div");
+  board.appendChild(row);
+  row.className = "row";
+  row.id = "row_" + rowId;
+  for (let i = 0; i < 4; i++) {
+    addPin(row, rowId, i + 1);
+  }
 }
 
-function addButton(row, rowId, buttonId) {
-    let buttonWrapper =document.createElement("div")
-    let button = document.createElement("button")
-    buttonWrapper.appendChild(button)
-    buttonWrapper.className = "button-wrapper"
-    button.className = "hole"
-    button.id = "button_" + rowId + "_" + buttonId
-    button.addEventListener('click', function () {
-        selectButtonColor(button.id)
-    });
-    row.appendChild(buttonWrapper)
+function addPin(row, rowId, pinId) {
+  let pinWrapper = document.createElement("div");
+  let pin = createPin(rowId, pinId);
+  pinWrapper.appendChild(pin);
+  pinWrapper.className = "pin-wrapper";
+  row.appendChild(pinWrapper);
+}
+
+function createPin(rowId, pinId) {
+  let pin = document.createElement("div");
+  pin.classList.add("pin-position");
+  pin.classList.add("hole");
+  pin.id = "pin_" + rowId + "_" + pinId;
+  pin.addEventListener("click", function () {
+    selectPinColor(pin.id);
+  });
+  return pin;
 }
 
 window.onload = function () {
-    for (let i = 0; i < 9; i++) {
-        addRow(i + 1)
-    }
-}
+  for (let i = 0; i < 9; i++) {
+    //TODO: adjust counter to avoid adding one here
+    addRow(i + 1);
+  }
+};

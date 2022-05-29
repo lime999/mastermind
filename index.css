@@ -1,46 +1,39 @@
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    font-weight: bold;
-    color: gray;
-    text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", Arial,
+    sans-serif;
+  text-align: center;
 }
-
-button {
-    font-weight: bold;
-margin: 0;position: absolute;top: 50%;left: 32%;transform: translate(0, -50%);}
-
-.hole {
-    background-color: grey;
-    border-radius: 2em;
-    height: 3em;
-    /* margin: 1em; */
-    border-color: gray;
-    border-style: solid;
-    width: 3em;
-padding: 0;}
-
-.pin {
-    background-color: grey;
-    border-radius: 3em;
-    height: 5em;
-    /* margin: 1em; */
-    border-color: gray;
-    border-style: solid;
-    width: 5em;
-padding: 0;left: 20%;}
 
 #headline {
-    padding-bottom: 20px;
-    color: black;
-    font-size: 5em;
+  color: gray;
+  font-size: 5em;
 }
 
-.row {
-    height: 8em;
-
+.pin-wrapper {
+  display: inline-block;
+  display: inline-block;
+  height: 6em;
+  width: 6em;
+  position: relative;
 }
 
-.button-wrapper {
+.pin-wrapper .pin-position {
+  background-color: gray;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: gray;
+  border-style: solid;
+}
 
-    
-display: inline-block;width: 6em;height: 8em;/* margin: auto; */position: relative;padding-left: 0.5em;padding-right: 0.5em;}
+.pin-wrapper .hole {
+  height: 2em;
+  width: 2em;
+}
+
+.pin-wrapper .pin {
+  height: 4em;
+  width: 4em;
+}
