@@ -61,3 +61,7 @@ body {
   background-color: white;
   color: gray;
 }
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

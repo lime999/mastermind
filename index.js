@@ -67,4 +67,7 @@ window.onload = function () {
 };
 function start() {
   gameStarted = true
+  let start = document.getElementById("start")
+  start.classList.add("disabled")
+  start.setAttribute("disabled")
 }
