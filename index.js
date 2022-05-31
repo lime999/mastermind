@@ -1,3 +1,4 @@
+let gameStarted = false
 let colors = [
   "red",
   "lightblue",
@@ -14,7 +15,7 @@ function selectPinColor(pinId) {
   if (pin.classList.contains("hole")) {
     pin.classList.remove("hole");
   }
-  if (!pin.classList.contains("pin")) { 
+  if (!pin.classList.contains("pin")) {
     pin.classList.add("pin");
   }
 }
@@ -52,7 +53,9 @@ function createPin(rowId, pinId) {
   pin.classList.add("hole");
   pin.id = "pin_" + rowId + "_" + pinId;
   pin.addEventListener("click", function () {
-    selectPinColor(pin.id);
+    if (gameStarted) {
+      selectPinColor(pin.id);
+    }
   });
   return pin;
 }
@@ -62,3 +65,6 @@ window.onload = function () {
     addRow(i);
   }
 };
+function start() {
+  gameStarted = true
+}

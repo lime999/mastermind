@@ -48,4 +48,16 @@ body {
   border-radius: 0.3em;
   padding-right: 0.5em;
   padding-left: 0.5em;
+  border: 1px solid #4CAF50;
+}
+
+#start:hover {
+  border: 1px solid gray;
+  background-color: green;
+  color: gray;
+}
+#start:active {
+  border: 1px solid gray;
+  background-color: white;
+  color: gray;
 }
