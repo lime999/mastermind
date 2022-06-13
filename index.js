@@ -1,4 +1,8 @@
+let currentRow = 1
 let gameStarted = false
+let code = [
+
+]
 let colors = [
   "red",
   "lightblue",
@@ -68,6 +72,38 @@ window.onload = function () {
 function start() {
   gameStarted = true
   let start = document.getElementById("start")
-  start.classList.add("disabled")
-  start.setAttribute("disabled")
+  makeCode()
+  start.classList.add("hidden")
+}
+
+function makeCode() {
+  code = [
+    "lightgreen",
+    "red",
+    "lightblue",
+    "pink"
+  ]
+}
+function checkRow() {
+  let guess = getGuess(currentRow)
+  if (guess[0] === code[0] &&
+    guess[1] === code[1] &&
+    guess[2] === code[2] &&
+    guess[3] === code[3]) {
+    alert("You Won")
+  } else {
+    currentRow += 1
+  }
+}
+function getGuess(currentRow) {
+  let pin_1 = document.getElementById("pin_" + currentRow + "_1").style.backgroundColor
+  let pin_2 = document.getElementById("pin_" + currentRow + "_2").style.backgroundColor
+  let pin_3 = document.getElementById("pin_" + currentRow + "_3").style.backgroundColor
+  let pin_4 = document.getElementById("pin_" + currentRow + "_4").style.backgroundColor
+  return [
+    pin_1,
+    pin_2,
+    pin_3,
+    pin_4
+  ]
 }
