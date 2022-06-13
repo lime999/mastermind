@@ -96,14 +96,9 @@ function checkRow() {
   }
 }
 function getGuess(currentRow) {
-  let pin_1 = document.getElementById("pin_" + currentRow + "_1").style.backgroundColor
-  let pin_2 = document.getElementById("pin_" + currentRow + "_2").style.backgroundColor
-  let pin_3 = document.getElementById("pin_" + currentRow + "_3").style.backgroundColor
-  let pin_4 = document.getElementById("pin_" + currentRow + "_4").style.backgroundColor
-  return [
-    pin_1,
-    pin_2,
-    pin_3,
-    pin_4
-  ]
+  let guess = []
+  for (let i = 1; i < 5; i++) {
+    guess.push(document.getElementById("pin_" + currentRow + "_" + i).style.backgroundColor)
+  }
+  return guess
 }
