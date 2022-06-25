@@ -89,12 +89,17 @@ function makeCode() {
 }
 function checkRow() {
   let guess = getGuess(currentRow)
+  let pinEmpty = guess.includes('')
+  if (pinEmpty) {
+    alert("Please select all pins")
+    return
+  }
   if (guess[0] === code[0] &&
     guess[1] === code[1] &&
     guess[2] === code[2] &&
     guess[3] === code[3]) {
-
-    } else {
+    alert("You won!")
+  } else {
     currentRow += 1
   }
 }
