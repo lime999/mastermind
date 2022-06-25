@@ -57,7 +57,7 @@ function createPin(rowId, pinId) {
   pin.classList.add("hole");
   pin.id = "pin_" + rowId + "_" + pinId;
   pin.addEventListener("click", function () {
-    if (gameStarted) {
+    if (gameStarted && currentRow === rowId) {
       selectPinColor(pin.id);
     }
   });
@@ -93,8 +93,8 @@ function checkRow() {
     guess[1] === code[1] &&
     guess[2] === code[2] &&
     guess[3] === code[3]) {
-    alert("You Won")
-  } else {
+
+    } else {
     currentRow += 1
   }
 }
