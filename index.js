@@ -41,6 +41,10 @@ function addRow(rowId) {
   for (let i = 0; i < 4; i++) {
     addPin(row, rowId, i + 1);
   }
+  let result = document.createElement("div")
+  result.classList.add("result")
+  result.id = "result_" + rowId
+  row.appendChild(result)
 }
 
 function addPin(row, rowId, pinId) {
