@@ -74,6 +74,8 @@ function start() {
   let start = document.getElementById("start")
   makeCode()
   start.classList.add("hidden")
+  let check = document.getElementById("check")
+  check.classList.remove("hidden")
 }
 
 function makeCode() {
