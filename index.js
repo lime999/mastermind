@@ -98,13 +98,20 @@ function checkRow() {
     alert("Please select all pins")
     return
   }
-  let correctPositions = 0
-  if (guess[0] === code[0]) { correctPositions += 1 }
-  if (guess[1] === code[1]) { correctPositions += 1 }
-  if (guess[2] === code[2]) { correctPositions += 1 }
-  if (guess[3] === code[3]) { correctPositions += 1 }
+
+  let correctPositions = [0, 0, 0, 0]
+  if (guess[0] === code[0]) { correctPositions[0] = 1 }
+  if (guess[1] === code[1]) { correctPositions[1] = 1 }
+  if (guess[2] === code[2]) { correctPositions[2] = 1 }
+  if (guess[3] === code[3]) { correctPositions[3] = 1 }
   let result = document.getElementById("result_" + currentRow)
-  result.textContent = "p".repeat(correctPositions)
+  result.textContent = "p".repeat(correctPositions.reduce((pv, cv) => pv + cv, 0))
+  let correctColors = 0
+  if (code.includes(guess[0]) && correctPositions[0] == 0) { correctColors += 1 }
+  if (code.includes(guess[1]) && correctPositions[1] == 0) { correctColors += 1 }
+  if (code.includes(guess[2]) && correctPositions[2] == 0) { correctColors += 1 }
+  if (code.includes(guess[3]) && correctPositions[3] == 0) { correctColors += 1 }
+  result.textContent += "c".repeat(correctColors)
   if (correctPositions == 4) {
     alert("You won!")
   } else {
