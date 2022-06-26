@@ -105,14 +105,15 @@ function checkRow() {
   if (guess[2] === code[2]) { correctPositions[2] = 1 }
   if (guess[3] === code[3]) { correctPositions[3] = 1 }
   let result = document.getElementById("result_" + currentRow)
-  result.textContent = "p".repeat(correctPositions.reduce((pv, cv) => pv + cv, 0))
+  let numberOfCorrectPositions = correctPositions.reduce((pv, cv) => pv + cv, 0)
+  result.textContent = "p".repeat(numberOfCorrectPositions)
   let correctColors = 0
   if (code.includes(guess[0]) && correctPositions[0] == 0) { correctColors += 1 }
   if (code.includes(guess[1]) && correctPositions[1] == 0) { correctColors += 1 }
   if (code.includes(guess[2]) && correctPositions[2] == 0) { correctColors += 1 }
   if (code.includes(guess[3]) && correctPositions[3] == 0) { correctColors += 1 }
   result.textContent += "c".repeat(correctColors)
-  if (correctPositions == 4) {
+  if (numberOfCorrectPositions == 4) {
     alert("You won!")
   } else {
     currentRow += 1
