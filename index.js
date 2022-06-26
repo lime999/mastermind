@@ -98,6 +98,12 @@ function checkRow() {
     alert("Please select all pins")
     return
   }
+  const counts = {}
+  guess.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
+  if (Object.keys(counts).length < 4) {
+    alert("Please use unique colors(no duplicates allowed)")
+    return
+  }
   let correctColors = 0
   let correctPositions = [0, 0, 0, 0]
   for (let i = 0; i < 4; i++) {
