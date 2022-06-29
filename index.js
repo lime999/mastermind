@@ -69,17 +69,27 @@ function createPin(rowId, pinId) {
 }
 
 window.onload = function () {
+  addRows();
+};
+function addRows() {
   for (let i = 1; i < 10; i++) {
     addRow(i);
   }
-};
+}
+
 function start() {
+  currentRow = 1
+  let board = document.getElementById("board")
+  board.innerHTML = ''
+  addRows()
   gameStarted = true
   let start = document.getElementById("start")
   makeCode()
-  start.classList.add("hidden")
+  start.textContent = "Restart"
   let check = document.getElementById("check")
   check.classList.remove("hidden")
+  let checkTwo = document.getElementById("checkTwo")
+  checkTwo.classList.remove("hidden")
 }
 
 function makeCode() {
