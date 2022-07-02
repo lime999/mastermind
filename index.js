@@ -54,7 +54,6 @@ function addPin(row, rowId, pinId) {
   pinWrapper.className = "pin-wrapper";
   row.appendChild(pinWrapper);
 }
-
 function createPin(rowId, pinId) {
   let pin = document.createElement("div");
   pin.classList.add("pin-position");
@@ -128,6 +127,10 @@ function checkRow() {
     alert("You won!")
   } else {
     currentRow += 1
+  }
+  if (currentRow === 10){
+    alert("You lost!")
+    start()
   }
 }
 function getGuess(currentRow) {
