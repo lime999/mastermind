@@ -125,12 +125,11 @@ function checkRow() {
   result.textContent += "c".repeat(correctColors)
   if (numberOfCorrectPositions == 4) {
     alert("You won!")
-  } else {
-    currentRow += 1
-  }
-  if (currentRow === 10){
+  } else if (currentRow === 9) {
     alert("You lost!")
     start()
+  } else {
+    currentRow += 1
   }
 }
 function getGuess(currentRow) {
