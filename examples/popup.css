@@ -13,14 +13,14 @@
 .popup .popuptext {
     visibility: hidden;
     width: 160px;
-    background-color: #555;
+    background-color: rgba(240, 240, 240, 1);
     color: #fff;
     text-align: center;
     border-radius: 6px;
     padding: 8px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    top: 125%;
     left: 50%;
     margin-left: -80px;
 }
@@ -29,17 +29,38 @@
 .popup .popuptext::after {
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
+    margin-left: -8px;
+    border-width: 8px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: transparent transparent rgba(240, 240, 240, 1)  transparent;
 }
+
+::after {}
 
 /* Toggle this class - hide and show the popup */
 .popup .show {
     visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
+}
+
+.pin-wrapper {
+    text-align: center;
+    display: inline-block;
+    height: 6em;
+    width: 6em;
+    position: relative;
+}
+.pin-wrapper .pin {
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-color: gray;
+    border-style: solid;
+    height: 4em;
+    width: 4em;
+    background-color: red;
 }
