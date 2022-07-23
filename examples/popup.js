@@ -7,6 +7,7 @@ let colors = [
     "pink",
     "silver",
     "orange",
+    "gray"
 ];
 function myFunction() {
     var popup = document.getElementById("myPopup");
