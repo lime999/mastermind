@@ -7,40 +7,12 @@
 <body style="text-align:center">
 
   <h2>Popup</h2>
+  <div class="pin-wrapper2" onclick="showPopup('pin_1_1')">
+    <div id="pin_1_1" class="hole"></div>
+  </div>
 
-  <div class="popup" onclick="myFunction()">
-    <div class="pin-wrapper2">
-      <div id="pin_1_1" class="hole"></div>
-    </div>
-    <div class="popuptext" id="myPopup">
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','red')">
-        <div class="pin-position pin" id="color-red" style="background-color: red;"></div>
-      </div>
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','lightblue')">
-        <div class="pin-position pin" id="color-lightblue" style="background-color: lightblue;"></div>
-      </div>
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','white')">
-        <div class="pin-position pin" id="color-white" style="background-color: white;"></div>
-      </div>
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','yellow')">
-        <div class="pin-position pin" id="color-yellow" style="background-color: yellow;"></div>
-      </div>
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','lightgreen')">
-        <div class="pin-position pin" id="color-lightgreen" style="background-color: lightgreen;"></div>
-      </div>
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','pink')">
-        <div class="pin-position pin" id="color-pink" style="background-color: pink;"></div>
-      </div>
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','silver')">
-        <div class="pin-position pin" id="color-silver" style="background-color: silver;"></div>
-      </div>
-      <div class="pin-wrapper" onclick="selectPinColor('pin_1_1','orange')">
-        <div class="pin-position pin" id="color-orange" style="background-color: orange;"></div>
-      </div>
-      <div class="hole-wrapper" onclick="selectPinColor('pin_1_1','grey')">
-        <img src="../back btn.jpg" alt="back to hole btn" width="100" height="40">
-      </div>
-    </div>
+  <div class="popup">
+    <div class="popup-content" id="colorSelect"></div>
   </div>
   <script src="popup.js"></script>
 </body>
