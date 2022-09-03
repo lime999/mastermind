@@ -1,0 +1,17 @@
+#error {
+  width: 25em;
+  height: 5em;
+  line-height: 5em;
+  font-size: large;
+  background-color: rgba(240, 240, 240, 1);
+  color: red;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 6px;
+  padding: 1em 1em;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-left: -12.5em;
+}
