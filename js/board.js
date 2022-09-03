@@ -34,7 +34,7 @@ function createPin(rowId, pinId) {
   pin.id = "pin_" + rowId + "_" + pinId;
   pin.addEventListener("click", function () {
     if (gameStarted && currentRow === rowId) {
-      selectPinColor(pin.id);
+      showPopup(pin.id);
     }
   });
   return pin;

@@ -3,6 +3,7 @@
         <title>Mastermind</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/error.css">
+        <link rel="stylesheet" href="css/popup.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -17,11 +18,16 @@
         <div id="board" class="board"></div>
         <button class="hidden" type="button" id="check" onclick="checkRow()">Check</button>
         <div id="error" class="hidden"></div>
+        <div class="popup">
+          <div class="popup-content" id="colorSelect"></div>
+        </div>
+          
         <script src="js/board.js"></script>
         <script src="js/colors.js"></script>
         <script src="js/error.js"></script>
         <script src="js/game.js"></script>
-        <script src="js/index.js"></script>
+        <script src="js/popup.js"></script>
         <script src="js/solution.js"></script>
+        <script src="js/index.js"></script>
     </body>
 </html>

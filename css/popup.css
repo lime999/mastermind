@@ -1,0 +1,42 @@
+/* Popup container - can be anything you want */
+.popup {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popup-content {
+  visibility: hidden;
+  width: 25em;
+  background-color: rgba(240, 240, 240, 1);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-left: -18em;
+}
+
+/* Popup arrow */
+.popup .popup-content::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 31%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent rgba(240, 240, 240, 1) transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+}

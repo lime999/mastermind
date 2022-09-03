@@ -17,9 +17,9 @@ function start() {
   checkTwo.classList.remove("hidden");
 }
 
-function selectPinColor(pinId) {
+function selectPinColor(pinId, color) {
   let pin = document.getElementById(pinId);
-  pin.style.backgroundColor = getNextColor(pin.style.backgroundColor);
+  pin.style.backgroundColor = color;
   if (pin.classList.contains("hole")) {
     pin.classList.remove("hole");
   }
@@ -43,8 +43,9 @@ function checkRow() {
     return;
   }
 
-  let { numberOfCorrectColors, numberOfCorrectPositions } =
-    getCorrectColorsAndPositions(guess, code);
+  let numberOfCorrectPositions = getNumberOfCorrectPositions(guess, code);
+  let numberOfCorrectColors = getNumberOfCorrectColors(guess, code);
+
   displayResult(numberOfCorrectPositions, numberOfCorrectColors);
   continueGame(numberOfCorrectPositions);
 }
@@ -68,22 +69,34 @@ function validateGuess(guess) {
   return errorMessage;
 }
 
-function getCorrectColorsAndPositions(guess, code) {
-  let correctColors = 0;
+function getNumberOfCorrectPositions(guess, code) {
+  let correctPositions = getCorrectPositions(guess, code);
+  let numberOfCorrectPositions = correctPositions.reduce(
+    (pv, cv) => pv + cv,
+    0
+  );
+  return numberOfCorrectPositions;
+}
+
+function getCorrectPositions(guess, code) {
   let correctPositions = [0, 0, 0, 0];
   for (let i = 0; i < 4; i++) {
     if (guess[i] === code[i]) {
       correctPositions[i] = 1;
     }
+  }
+  return correctPositions;
+}
+
+function getNumberOfCorrectColors(guess, code) {
+  let correctColors = 0;
+  let correctPositions = getCorrectPositions(guess, code);
+  for (let i = 0; i < 4; i++) {
     if (code.includes(guess[i]) && correctPositions[i] == 0) {
       correctColors += 1;
     }
   }
-  let numberOfCorrectPositions = correctPositions.reduce(
-    (pv, cv) => pv + cv,
-    0
-  );
-  return { correctColors, numberOfCorrectPositions };
+  return correctColors;
 }
 
 function displayResult(numberOfCorrectPositions, numberOfCorrectColors) {
