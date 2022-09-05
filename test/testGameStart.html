@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Test Suite</title>
+<link rel="stylesheet" href="../css/index.css" />
+<link rel="stylesheet" href="../css/error.css" />
+<link rel="stylesheet" href="../css/popup.css" />
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.1.css" />
+<body>
+  <button class="hidden" type="button" id="checkTwo" onclick="checkRow()">
+    Check
+  </button>
+  <button type="button" id="start" onclick="start()">Start Game</button>
+  <div id="board" class="board"></div>
+  <button class="hidden" type="button" id="check" onclick="checkRow()">
+    Check
+  </button>
+  <div id="error" class="hidden"></div>
+  <div class="popup">
+    <div class="popup-content" id="colorSelect"></div>
+  </div>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.19.1.js"></script>
+
+  <script src="../js/board.js"></script>
+  <script src="../js/colors.js"></script>
+  <script src="../js/error.js"></script>
+  <script src="../js/game.js"></script>
+  <script src="../js/popup.js"></script>
+  <script src="../js/solution.js"></script>
+
+  <script>
+    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+    QUnit.module("start", function () {
+      QUnit.test("switches buttons", function (assert) {
+        let gameState = {
+          currentRow: 1,
+          gameStarted: false,
+          code: [],
+        };
+
+        assert.equal(document.getElementById("check").classList[0], "hidden");
+        createBoard(gameState);
+        document.getElementById("start").click();
+        assert.equal(document.getElementById("start").textContent, "Restart");
+        assert.equal(document.getElementById("check").classList.length, 0);
+      });
+
+      QUnit.test("makes first pin clickable", function (assert) {
+        let gameState = {
+          currentRow: 1,
+          gameStarted: true,
+          code: [],
+        };
+
+        createBoard(gameState);
+        document.getElementById("pin_1_1").click();
+        // wait some time until popup appears
+        assert.timeout(50);
+        assert.async()();
+
+        assert.equal(
+          document.getElementById("colorSelect").childElementCount,
+          8
+        );
+      });
+    });
+  </script>
+</body>
