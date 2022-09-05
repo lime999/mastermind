@@ -1,15 +1,17 @@
-let currentRow = 1;
-let gameStarted = false;
-let code = [];
+let gameState = {
+  currentRow: 1,
+  gameStarted: false,
+  code: [],
+};
 
 function start() {
-  currentRow = 1;
+  gameState.currentRow = 1;
+  gameState.gameStarted = true;
   let board = document.getElementById("board");
   board.innerHTML = "";
-  createBoard();
-  gameStarted = true;
+  createBoard(gameState);
   let start = document.getElementById("start");
-  makeCode();
+  gameState.code = makeCode();
   start.textContent = "Restart";
   let check = document.getElementById("check");
   check.classList.remove("hidden");
@@ -37,14 +39,17 @@ function getNextColor(currentColor) {
 }
 
 function checkRow() {
-  let guess = getGuess(currentRow);
+  let guess = getGuess(gameState.currentRow);
   let errorMessage = validateGuess(guess);
   if (errorMessage) {
     return;
   }
 
-  let numberOfCorrectPositions = getNumberOfCorrectPositions(guess, code);
-  let numberOfCorrectColors = getNumberOfCorrectColors(guess, code);
+  let numberOfCorrectPositions = getNumberOfCorrectPositions(
+    guess,
+    gameState.code
+  );
+  let numberOfCorrectColors = getNumberOfCorrectColors(guess, gameState.code);
 
   displayResult(numberOfCorrectPositions, numberOfCorrectColors);
   continueGame(numberOfCorrectPositions);
@@ -100,7 +105,7 @@ function getNumberOfCorrectColors(guess, code) {
 }
 
 function displayResult(numberOfCorrectPositions, numberOfCorrectColors) {
-  let result = document.getElementById("result_" + currentRow);
+  let result = document.getElementById("result_" + gameState.currentRow);
   result.textContent = "p".repeat(numberOfCorrectPositions);
   result.textContent += "c".repeat(numberOfCorrectColors);
 }
@@ -108,10 +113,10 @@ function displayResult(numberOfCorrectPositions, numberOfCorrectColors) {
 function continueGame(numberOfCorrectPositions) {
   if (numberOfCorrectPositions == 4) {
     alert("You won!");
-  } else if (currentRow === 9) {
+  } else if (gameState.currentRow === 9) {
     alert("You lost!");
     start();
   } else {
-    currentRow += 1;
+    gameState.currentRow += 1;
   }
 }
