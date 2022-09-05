@@ -1,9 +1,3 @@
-let gameState = {
-  currentRow: 1,
-  gameStarted: false,
-  code: [],
-};
-
 function start() {
   gameState.currentRow = 1;
   gameState.gameStarted = true;

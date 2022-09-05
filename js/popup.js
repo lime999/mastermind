@@ -1,8 +1,10 @@
-function showPopup(pinId) {
+function showPopup(pinId, event) {
   let popup = document.getElementById("colorSelect");
   popup.classList.toggle("show");
   popup.textContent = "";
   addSelectPins(pinId);
+  popup.style.top = `${event.pageY}px`;
+  popup.style.left = `${event.pageX}px`;
 }
 function hidePopup() {
   let popup = document.getElementById("colorSelect");

@@ -19,9 +19,8 @@
   padding: 8px 0;
   position: absolute;
   z-index: 1;
-  top: 50%;
-  left: 50%;
-  margin-left: -18em;
+  margin-left: -8em;
+  margin-top: 2em;
 }
 
 /* Popup arrow */
