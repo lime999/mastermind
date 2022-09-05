@@ -19,7 +19,7 @@ function addRow(rowId, gameState) {
   row.appendChild(result);
 }
 
-function addPin(row, rowId, pinId) {
+function addPin(row, rowId, pinId, gameState) {
   let pinWrapper = document.createElement("div");
   let pin = createPin(rowId, pinId, gameState);
   pinWrapper.appendChild(pin);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.1.css" />
+<body>
+  <div id="board" class="board"></div>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.19.1.js"></script>
+  <script src="../js/board.js"></script>
+  <script>
+    QUnit.module("createBoard", function () {
+      QUnit.test("creates board", function (assert) {
+        let gameState = {
+          currentRow: 1,
+          gameStarted: false,
+          code: [],
+        };
+
+        createBoard(gameState);
+        let rows = document.getElementsByClassName("row");
+        assert.equal(rows.length, 9);
+        let pins = document.getElementsByClassName("pin-position");
+        assert.equal(pins.length, 36);
+      });
+    });
+  </script>
+</body>
