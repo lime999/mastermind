@@ -1,10 +1,13 @@
 function showPopup(pinId, event) {
   let popup = document.getElementById("colorSelect");
   popup.classList.toggle("show");
-  popup.textContent = "";
-  addSelectPins(pinId);
+  // position next to clicked hole
   popup.style.top = `${event.pageY}px`;
   popup.style.left = `${event.pageX}px`;
+  // clear popup content
+  popup.textContent = "";
+
+  addSelectPins(pinId);
 }
 function hidePopup() {
   let popup = document.getElementById("colorSelect");
