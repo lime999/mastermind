@@ -33,7 +33,7 @@ function createPin(rowId, pinId, gameState) {
   pin.classList.add("hole");
   pin.id = "pin_" + rowId + "_" + pinId;
   pin.addEventListener("click", function (event) {
-    if (gameState.gameStarted && gameState.currentRow === rowId) {
+    if (gameState && gameState.gameStarted && gameState.currentRow === rowId) {
       showPopup(pin.id, event);
     }
   });
