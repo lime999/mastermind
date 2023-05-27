@@ -59,12 +59,27 @@ body {
   background-color: green;
   color: gray;
 }
+
 #start:active {
   border: 1px solid gray;
   background-color: white;
   color: gray;
 }
+
 .hidden {
   visibility: hidden;
   display: none;
+}
+
+.result {
+  width: 100px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.result-pin-wrapper{
+  flex: 1 1 40px;
+    display: flex;
+    height: 3em;
+    width: 6em;
 }
