@@ -100,10 +100,14 @@ function getNumberOfCorrectColors(guess, code) {
 
 function displayResult(numberOfCorrectPositions, numberOfCorrectColors) {
   let result = document.getElementById("result_" + gameState.currentRow);
-  result.textContent = "p".repeat(numberOfCorrectPositions);
-  result.textContent += "c".repeat(numberOfCorrectColors);
+  for (let i = 0; i < numberOfCorrectPositions; i++) {
+    let pin = getResultPin(i);
+    pin.style.backgroundColor = "red";
+  }
 }
-
+function getResultPin(pinId) {
+  return document.getElementById("result_pin_" + gameState.currentRow + "_" + pinId)
+}
 function continueGame(numberOfCorrectPositions) {
   if (numberOfCorrectPositions == 4) {
     alert("You won!");

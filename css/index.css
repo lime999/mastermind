@@ -18,7 +18,13 @@ body {
   position: relative;
 }
 
-.pin-wrapper .pin-position {
+.result-pin-wrapper .pin-position  {
+  background-color: white;
+  border-radius: 50%;
+  border-color: white;
+  border-style: solid;
+}
+.pin-wrapper .pin-position  {
   background-color: gray;
   border-radius: 50%;
   position: absolute;
@@ -27,6 +33,10 @@ body {
   transform: translate(-50%, -50%);
   border-color: gray;
   border-style: solid;
+}
+.result-pin-wrapper .hole {
+  height: 1em;
+  width: 1em;
 }
 
 .pin-wrapper .hole {
