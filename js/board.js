@@ -19,6 +19,7 @@ function addResult(rowId, row) {
   let result = document.createElement("div");
   result.classList.add("result");
   result.id = "result_" + rowId;
+  // result.classList.add("hidden");
   row.appendChild(result);
   for (let i = 0; i < 4; i++) {
     let pinWrapper = document.createElement("div");

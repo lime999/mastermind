@@ -18,13 +18,15 @@ body {
   position: relative;
 }
 
-.result-pin-wrapper .pin-position  {
+.result-pin-wrapper .pin-position {
   background-color: white;
   border-radius: 50%;
-  border-color: white;
+  border-color: grey;
   border-style: solid;
+  border-width: thin;   
 }
-.pin-wrapper .pin-position  {
+
+.pin-wrapper .pin-position {
   background-color: gray;
   border-radius: 50%;
   position: absolute;
@@ -34,6 +36,7 @@ body {
   border-color: gray;
   border-style: solid;
 }
+
 .result-pin-wrapper .hole {
   height: 1em;
   width: 1em;
@@ -82,14 +85,11 @@ body {
 }
 
 .result {
-  width: 100px;
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  display: inline-flex;
+  margin-left: 1em;
 }
-.result-pin-wrapper{
-  flex: 1 1 40px;
-    display: flex;
-    height: 3em;
-    width: 6em;
+
+.result-pin-wrapper {
+  padding-bottom: 2em;
+  padding-right: 5px;
 }

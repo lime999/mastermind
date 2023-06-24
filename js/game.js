@@ -100,6 +100,7 @@ function getNumberOfCorrectColors(guess, code) {
 
 function displayResult(numberOfCorrectPositions, numberOfCorrectColors) {
   let result = document.getElementById("result_" + gameState.currentRow);
+  result.classList.remove("hidden");
   for (let i = 0; i < numberOfCorrectPositions; i++) {
     let pin = getResultPin(i);
     pin.style.backgroundColor = "red";
