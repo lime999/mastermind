@@ -104,6 +104,10 @@ function displayResult(numberOfCorrectPositions, numberOfCorrectColors) {
     let pin = getResultPin(i);
     pin.style.backgroundColor = "red";
   }
+  for (let i = numberOfCorrectPositions; i < numberOfCorrectColors + numberOfCorrectPositions; i++) {
+    let pin = getResultPin(i);
+    pin.style.backgroundColor = "green";
+  }
 }
 function getResultPin(pinId) {
   return document.getElementById("result_pin_" + gameState.currentRow + "_" + pinId)
