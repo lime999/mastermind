@@ -30,20 +30,18 @@ function createPopup() {
     return popup;
 }
 
-function togglePopup() {
-    var popup = document.getElementById("colorSelectPopup");
-    popup.classList.toggle("show");
-
+function togglePopup(dot) {
+    dot.firstChild.classList.toggle("show");
 }
 
 function changeDotColor(color) {
     selectedDot.style.backgroundColor = color;
-    togglePopup();
+    //togglePopup(selectedDot);
     selectedDot = null;
 }
 
 function showPopup(dot) {
-    togglePopup();
+    togglePopup(dot);
     selectedDot = dot;
 }
 
