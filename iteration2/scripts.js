@@ -9,7 +9,6 @@ function createDots() {
         const dot = document.createElement("div");
         dot.className = "dot";
         dot.id = "dot_" + i;
-        console.log("adding event listener" + i)
         dot.addEventListener("click", (event) => showPopup(event, dot));
         const board = document.getElementById("board");
         const popup = createPopup();
@@ -36,18 +35,16 @@ function togglePopup(dot) {
 }
 
 function changeDotColor(event, color) {
-    event.preventDefault
     selectedDot.style.backgroundColor = color;
-    //togglePopup(selectedDot);
+    togglePopup(selectedDot);
     selectedDot = null;
 }
 
 function showPopup(event, dot) {
-    event.preventDefault
-    console.log(selectedDot)
-    if (selectedDot) {
-       return 
+    if (selectedDot || !event.target.id) {
+        return
     }
+
     togglePopup(dot);
     selectedDot = dot;
 }
