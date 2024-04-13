@@ -1,10 +1,7 @@
-var selectedDot = null;
+'use strict';
+let selectedDot = null;
 const colors = ["blue", "red", "silver", "green", "black", "yellow"]
-function initialize() {
-    createDots();
-}
-
-function createDots() {
+function initializeDots() {
     for (let i = 1; i < 41; i++) {
         const dot = document.createElement("div");
         dot.className = "dot";
@@ -19,11 +16,11 @@ function createDots() {
 
 function createPopup() {
     const popup = document.createElement("span");
-    for (let i = 0; i < colors.length; ++i) {
+    for (let i = 0; i < colors.length; i++) {
         const dot = document.createElement("div")
         dot.classList.add("dot")
         dot.classList.add(colors[i])
-        dot.addEventListener("click", (event) => changeDotColor(event, colors[i]));
+        dot.addEventListener("click", (event) => changeDotColor(colors[i]));
         popup.appendChild(dot)
     }
     popup.classList.add("popuptext");
@@ -34,7 +31,7 @@ function togglePopup(dot) {
     dot.firstChild.classList.toggle("show");
 }
 
-function changeDotColor(event, color) {
+function changeDotColor(color) {
     selectedDot.style.backgroundColor = color;
     togglePopup(selectedDot);
     selectedDot = null;
